@@ -102,13 +102,13 @@
 .diagonal-line::after {
   content: '';
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 141.4%;
   height: 1px;
   background: #ece8e1;
-  transform-origin: top left;
-  transform: rotate(33deg);
+  transform-origin: bottom left;
+  transform: rotate(-33deg);
 }
 
 .diagonal-top,
@@ -124,22 +124,23 @@
 }
 
 .diagonal-top {
-  /* Content aligns to top-left area, above the diagonal */
-  align-items: flex-start;
+  /* Above diagonal = top-right area */
+  align-items: flex-end;
+  text-align: right;
   padding-bottom: 2px;
   overflow: hidden;
 }
 
-.diagonal-bottom {
-  /* Content aligns to bottom-right area, below the diagonal */
-  align-items: flex-end;
-  text-align: right;
-  padding-top: 2px;
-  overflow: hidden;
+.diagonal-top .cell-content {
+  flex-direction: row-reverse;
 }
 
-.diagonal-bottom .cell-content {
-  flex-direction: row-reverse;
+.diagonal-bottom {
+  /* Below diagonal = bottom-left area */
+  align-items: flex-start;
+  text-align: left;
+  padding-top: 2px;
+  overflow: hidden;
 }
 
 .diagonal-top:active,
