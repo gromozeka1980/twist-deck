@@ -1,0 +1,46 @@
+{
+  "name": "Oracle",
+  "color": "#b5838d",
+  "entries": [
+    {
+      "shortText": "Oracle #0",
+      "tooltip": "Oracle entry 0 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Oracle #1",
+      "tooltip": "Oracle entry 1 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Oracle #2",
+      "tooltip": "Oracle entry 2 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Oracle #3",
+      "tooltip": "Oracle entry 3 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Oracle #4",
+      "tooltip": "Oracle entry 4 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Oracle #5",
+      "tooltip": "Oracle entry 5 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Oracle #6",
+      "tooltip": "Oracle entry 6 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Oracle #7",
+      "tooltip": "Oracle entry 7 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Oracle #8",
+      "tooltip": "Oracle entry 8 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Oracle #9",
+      "tooltip": "Oracle entry 9 — placeholder tooltip text"
+    }
+  ]
+}

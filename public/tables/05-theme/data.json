@@ -1,0 +1,46 @@
+{
+  "name": "Mythos",
+  "color": "#3498db",
+  "entries": [
+    {
+      "shortText": "Mythos #0",
+      "tooltip": "Mythos entry 0 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Mythos #1",
+      "tooltip": "Mythos entry 1 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Mythos #2",
+      "tooltip": "Mythos entry 2 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Mythos #3",
+      "tooltip": "Mythos entry 3 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Mythos #4",
+      "tooltip": "Mythos entry 4 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Mythos #5",
+      "tooltip": "Mythos entry 5 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Mythos #6",
+      "tooltip": "Mythos entry 6 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Mythos #7",
+      "tooltip": "Mythos entry 7 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Mythos #8",
+      "tooltip": "Mythos entry 8 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Mythos #9",
+      "tooltip": "Mythos entry 9 — placeholder tooltip text"
+    }
+  ]
+}

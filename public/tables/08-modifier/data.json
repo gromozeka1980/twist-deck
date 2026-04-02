@@ -1,0 +1,46 @@
+{
+  "name": "Twist",
+  "color": "#fd79a8",
+  "entries": [
+    {
+      "shortText": "Twist #0",
+      "tooltip": "Twist entry 0 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Twist #1",
+      "tooltip": "Twist entry 1 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Twist #2",
+      "tooltip": "Twist entry 2 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Twist #3",
+      "tooltip": "Twist entry 3 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Twist #4",
+      "tooltip": "Twist entry 4 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Twist #5",
+      "tooltip": "Twist entry 5 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Twist #6",
+      "tooltip": "Twist entry 6 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Twist #7",
+      "tooltip": "Twist entry 7 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Twist #8",
+      "tooltip": "Twist entry 8 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Twist #9",
+      "tooltip": "Twist entry 9 — placeholder tooltip text"
+    }
+  ]
+}

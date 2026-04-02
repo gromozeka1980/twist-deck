@@ -1,0 +1,257 @@
+.card {
+  width: 340px;
+  max-width: 92vw;
+  margin: 0 auto;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.card-inner {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1.5px solid #e0dcd4;
+}
+
+.card-row {
+  display: flex;
+}
+
+.card-row:not(:last-child) {
+  border-bottom: 1px solid #ece8e1;
+}
+
+/* --- Normal cells --- */
+
+.card-cell {
+  flex: 1;
+  padding: 8px 10px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.15s;
+  min-height: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Border between two cells in a normal row */
+.card-row > .card-cell:first-child:not(:only-child) {
+  border-right: 1px solid #ece8e1;
+}
+
+.card-cell:active,
+.card-cell.active {
+  background: #f8f5f0;
+}
+
+.cell-label {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a09888;
+  margin-bottom: 3px;
+}
+
+.cell-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cell-icon {
+  flex-shrink: 0;
+  border-radius: 6px;
+}
+
+.cell-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #2d2a26;
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+/* --- Full-width row --- */
+
+.card-row > .card-cell:only-child {
+  border-right: none;
+}
+
+/* --- Diagonal split cell --- */
+
+.card-cell-diagonal-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+  overflow: hidden;
+  border-left: 1px solid #ece8e1;
+}
+
+.diagonal-line {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.diagonal-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 141.4%;
+  height: 1px;
+  background: #ece8e1;
+  transform-origin: top left;
+  transform: rotate(33deg);
+}
+
+.diagonal-top,
+.diagonal-bottom {
+  flex: 1;
+  padding: 6px 10px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.diagonal-top {
+  /* Content aligns to top-left area, above the diagonal */
+  align-items: flex-start;
+  padding-bottom: 2px;
+  overflow: hidden;
+}
+
+.diagonal-bottom {
+  /* Content aligns to bottom-right area, below the diagonal */
+  align-items: flex-end;
+  text-align: right;
+  padding-top: 2px;
+  overflow: hidden;
+}
+
+.diagonal-bottom .cell-content {
+  flex-direction: row-reverse;
+}
+
+.diagonal-top:active,
+.diagonal-top.active,
+.diagonal-bottom:active,
+.diagonal-bottom.active {
+  background: #f8f5f0;
+}
+
+.diagonal-top .cell-icon,
+.diagonal-bottom .cell-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.diagonal-top .cell-text,
+.diagonal-bottom .cell-text {
+  font-size: 11px;
+}
+
+.diagonal-top .cell-tooltip,
+.diagonal-bottom .cell-tooltip {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: calc(100% + 4px);
+  background: #2d2a26;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 8px 10px;
+  border-radius: 8px;
+  z-index: 20;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  animation: tooltipIn 0.15s ease-out;
+  pointer-events: none;
+  text-align: left;
+}
+
+.diagonal-top .cell-tooltip::after,
+.diagonal-bottom .cell-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 24px;
+  border: 6px solid transparent;
+  border-top-color: #2d2a26;
+}
+
+/* --- Tooltip --- */
+
+.cell-tooltip {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: calc(100% + 4px);
+  background: #2d2a26;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 8px 10px;
+  border-radius: 8px;
+  z-index: 20;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  animation: tooltipIn 0.15s ease-out;
+  pointer-events: none;
+}
+
+.cell-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 24px;
+  border: 6px solid transparent;
+  border-top-color: #2d2a26;
+}
+
+@keyframes tooltipIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Miniature card in grids --- */
+
+.card-mini .cell-label {
+  display: none;
+}
+
+.card-mini .cell-text {
+  font-size: 9px;
+}
+
+.card-mini .card-cell {
+  padding: 3px 4px;
+  min-height: 24px;
+}
+
+.card-mini .card-cell-diagonal-wrap {
+  min-height: 40px;
+}
+
+.card-mini .diagonal-top,
+.card-mini .diagonal-bottom {
+  padding: 2px 4px;
+}
+
+.card-mini .diagonal-line::after {
+  display: none;
+}

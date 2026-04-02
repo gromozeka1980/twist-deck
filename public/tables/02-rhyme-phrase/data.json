@@ -1,0 +1,46 @@
+{
+  "name": "Tricks",
+  "color": "#f1c40f",
+  "entries": [
+    {
+      "shortText": "Tricks #0",
+      "tooltip": "Tricks entry 0 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Tricks #1",
+      "tooltip": "Tricks entry 1 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Tricks #2",
+      "tooltip": "Tricks entry 2 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Tricks #3",
+      "tooltip": "Tricks entry 3 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Tricks #4",
+      "tooltip": "Tricks entry 4 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Tricks #5",
+      "tooltip": "Tricks entry 5 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Tricks #6",
+      "tooltip": "Tricks entry 6 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Tricks #7",
+      "tooltip": "Tricks entry 7 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Tricks #8",
+      "tooltip": "Tricks entry 8 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Tricks #9",
+      "tooltip": "Tricks entry 9 — placeholder tooltip text"
+    }
+  ]
+}

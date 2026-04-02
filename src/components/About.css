@@ -1,0 +1,41 @@
+.about-page {
+  padding: 24px 20px 80px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #2d2a26;
+  margin: 0;
+}
+
+.about-version {
+  font-size: 13px;
+  color: #a09888;
+  margin: 4px 0 24px;
+}
+
+.about-section {
+  margin-bottom: 24px;
+}
+
+.about-section h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d2a26;
+  margin: 0 0 8px;
+}
+
+.about-section p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a4540;
+  margin: 0 0 10px;
+}
+
+.about-license {
+  font-size: 12px;
+  color: #a09888;
+}

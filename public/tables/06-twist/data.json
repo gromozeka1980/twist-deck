@@ -1,0 +1,46 @@
+{
+  "name": "Begins with",
+  "color": "#9b59b6",
+  "entries": [
+    {
+      "shortText": "Begins with #0",
+      "tooltip": "Begins with entry 0 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Begins with #1",
+      "tooltip": "Begins with entry 1 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Begins with #2",
+      "tooltip": "Begins with entry 2 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Begins with #3",
+      "tooltip": "Begins with entry 3 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Begins with #4",
+      "tooltip": "Begins with entry 4 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Begins with #5",
+      "tooltip": "Begins with entry 5 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Begins with #6",
+      "tooltip": "Begins with entry 6 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Begins with #7",
+      "tooltip": "Begins with entry 7 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Begins with #8",
+      "tooltip": "Begins with entry 8 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Begins with #9",
+      "tooltip": "Begins with entry 9 — placeholder tooltip text"
+    }
+  ]
+}

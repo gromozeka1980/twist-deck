@@ -1,0 +1,46 @@
+{
+  "name": "Archetype",
+  "color": "#636e72",
+  "entries": [
+    {
+      "shortText": "Archetype #0",
+      "tooltip": "Archetype entry 0 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Archetype #1",
+      "tooltip": "Archetype entry 1 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Archetype #2",
+      "tooltip": "Archetype entry 2 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Archetype #3",
+      "tooltip": "Archetype entry 3 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Archetype #4",
+      "tooltip": "Archetype entry 4 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Archetype #5",
+      "tooltip": "Archetype entry 5 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Archetype #6",
+      "tooltip": "Archetype entry 6 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Archetype #7",
+      "tooltip": "Archetype entry 7 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Archetype #8",
+      "tooltip": "Archetype entry 8 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Archetype #9",
+      "tooltip": "Archetype entry 9 — placeholder tooltip text"
+    }
+  ]
+}

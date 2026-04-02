@@ -1,0 +1,46 @@
+{
+  "name": "Terrain",
+  "color": "#55a630",
+  "entries": [
+    {
+      "shortText": "Terrain #0",
+      "tooltip": "Terrain entry 0 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Terrain #1",
+      "tooltip": "Terrain entry 1 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Terrain #2",
+      "tooltip": "Terrain entry 2 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Terrain #3",
+      "tooltip": "Terrain entry 3 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Terrain #4",
+      "tooltip": "Terrain entry 4 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Terrain #5",
+      "tooltip": "Terrain entry 5 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Terrain #6",
+      "tooltip": "Terrain entry 6 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Terrain #7",
+      "tooltip": "Terrain entry 7 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Terrain #8",
+      "tooltip": "Terrain entry 8 — placeholder tooltip text"
+    },
+    {
+      "shortText": "Terrain #9",
+      "tooltip": "Terrain entry 9 — placeholder tooltip text"
+    }
+  ]
+}
