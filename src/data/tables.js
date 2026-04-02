@@ -267,9 +267,10 @@ export const CARD_LAYOUT = [
   { type: 'normal', left: 12, right: 13 },
 ];
 
-/** Build path to SVG icon in public/tables/ */
+/** Build path to SVG icon in public/tables/ (respects Vite base URL) */
 export function getIconPath(tableIndex, roll) {
-  return `/tables/${tables[tableIndex].dir}/${roll}.svg`;
+  const base = import.meta.env.BASE_URL;
+  return `${base}tables/${tables[tableIndex].dir}/${roll}.svg`;
 }
 
 export default tables;
