@@ -83,7 +83,11 @@ export default function Card({ card, scale = 1, interactive = true }) {
                   cellKey={keyL}
                 />
                 <div className="card-cell-diagonal-wrap">
-                  <div className="diagonal-line" />
+                  <div className="diagonal-line">
+                    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <line x1="0" y1="100" x2="100" y2="0" stroke="#d0ccc4" strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
+                    </svg>
+                  </div>
                   <div
                     className={`diagonal-top ${activeTooltip === keyRT ? 'active' : ''}`}
                     onClick={(e) => {

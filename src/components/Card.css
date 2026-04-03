@@ -10,9 +10,14 @@
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
   border: 1.5px solid #e0dcd4;
+  /* no overflow:hidden — let tooltips escape */
 }
+
+/* Round the corners of first/last rows to match border-radius */
+.card-row:first-child { border-radius: 16px 16px 0 0; overflow: hidden; }
+.card-row:last-child  { border-radius: 0 0 16px 16px; overflow: hidden; }
+.card-row:first-child:last-child { border-radius: 16px; }
 
 .card-row {
   display: flex;
@@ -37,7 +42,6 @@
   overflow: hidden;
 }
 
-/* Border between two cells in a normal row */
 .card-row > .card-cell:first-child:not(:only-child) {
   border-right: 1px solid #ece8e1;
 }
@@ -76,7 +80,6 @@
   line-height: 1.3;
   word-break: break-word;
   overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 /* --- Full-width row --- */
@@ -85,7 +88,6 @@
   border-right: none;
 }
 
-/* Full-width cell gets a larger icon */
 .card-row > .card-cell:only-child .cell-icon {
   width: 36px;
   height: 36px;
@@ -95,81 +97,72 @@
   font-size: 12px;
 }
 
-/* --- Diagonal split cell --- */
+/* --- Diagonal split cell (true triangles via clip-path) --- */
 
 .card-cell-diagonal-wrap {
   flex: 1;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 110px;
-  overflow: hidden;
+  min-height: 120px;
   border-left: 1px solid #ece8e1;
 }
 
+/* The SVG diagonal line */
 .diagonal-line {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
-.diagonal-line::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 150%;
-  height: 1px;
-  background: #d0ccc4;
-  transform-origin: bottom left;
-  transform: rotate(-33deg);
+.diagonal-line svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
+/* Both triangle zones are absolutely positioned to fill the whole cell */
 .diagonal-top,
 .diagonal-bottom {
-  flex: 1;
-  padding: 4px 6px;
+  position: absolute;
+  inset: 0;
+  padding: 8px;
   cursor: pointer;
-  position: relative;
   transition: background 0.15s;
   display: flex;
   flex-direction: column;
 }
 
+/* Top-right triangle: above the bottom-left → top-right diagonal */
 .diagonal-top {
-  /* Above diagonal = top-right area */
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
   align-items: flex-end;
   justify-content: flex-start;
   text-align: right;
-  padding-left: 30%;
-  overflow: hidden;
 }
 
 .diagonal-top .cell-content {
   flex-direction: row-reverse;
 }
 
+/* Bottom-left triangle: below the diagonal */
 .diagonal-bottom {
-  /* Below diagonal = bottom-left area */
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
   align-items: flex-start;
   justify-content: flex-end;
   text-align: left;
-  padding-right: 30%;
-  overflow: hidden;
 }
 
 .diagonal-top:active,
 .diagonal-top.active,
 .diagonal-bottom:active,
 .diagonal-bottom.active {
-  background: rgba(248, 245, 240, 0.6);
+  background: rgba(248, 245, 240, 0.7);
 }
 
 .diagonal-top .cell-icon,
 .diagonal-bottom .cell-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 .diagonal-top .cell-label,
@@ -180,54 +173,70 @@
 
 .diagonal-top .cell-text,
 .diagonal-bottom .cell-text {
-  font-size: 9px;
+  font-size: 10px;
   line-height: 1.2;
 }
 
 .diagonal-top .cell-content,
 .diagonal-bottom .cell-content {
   gap: 4px;
+  align-items: flex-start;
 }
 
-/* --- Tooltip --- */
+/* --- Tooltip (appears BELOW the cell) --- */
 
 .cell-tooltip {
   position: absolute;
   left: 4px;
   right: 4px;
-  bottom: calc(100% + 4px);
+  top: calc(100% + 4px);
   background: #2d2a26;
   color: #fff;
   font-size: 12px;
   line-height: 1.4;
   padding: 8px 10px;
   border-radius: 8px;
-  z-index: 20;
+  z-index: 30;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   animation: tooltipIn 0.15s ease-out;
   pointer-events: none;
+  text-align: left;
 }
 
 .cell-tooltip::after {
   content: '';
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 24px;
   border: 6px solid transparent;
-  border-top-color: #2d2a26;
+  border-bottom-color: #2d2a26;
 }
 
+/* Diagonal tooltips escape the clip-path by living outside the wrap */
 .diagonal-top .cell-tooltip,
 .diagonal-bottom .cell-tooltip {
-  text-align: left;
-  left: -50%;
-  right: 4px;
+  position: fixed;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: 260px;
+  max-width: 85vw;
+}
+
+.diagonal-top .cell-tooltip {
+  top: auto;
+  bottom: auto;
+}
+
+.diagonal-top .cell-tooltip::after,
+.diagonal-bottom .cell-tooltip::after {
+  display: none;
 }
 
 @keyframes tooltipIn {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(-4px);
   }
   to {
     opacity: 1;
@@ -264,7 +273,7 @@
   padding: 2px 3px;
 }
 
-.card-mini .diagonal-line::after {
+.card-mini .diagonal-line {
   display: none;
 }
 
