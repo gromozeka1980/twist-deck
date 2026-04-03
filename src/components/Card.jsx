@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect, useCallback, createPortal } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import './Card.css';
 
 function TooltipOverlay({ text, anchorRect }) {
