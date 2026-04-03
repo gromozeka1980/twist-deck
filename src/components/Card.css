@@ -4,6 +4,7 @@
   margin: 0 auto;
   user-select: none;
   -webkit-user-select: none;
+  position: relative;
 }
 
 .card-inner {
@@ -11,16 +12,16 @@
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.08);
   border: 1.5px solid #e0dcd4;
-  /* no overflow:hidden — let tooltips escape */
 }
 
-/* Round the corners of first/last rows to match border-radius */
+/* Round corners on first/last rows */
 .card-row:first-child { border-radius: 16px 16px 0 0; overflow: hidden; }
 .card-row:last-child  { border-radius: 0 0 16px 16px; overflow: hidden; }
 .card-row:first-child:last-child { border-radius: 16px; }
 
 .card-row {
   display: flex;
+  position: relative;
 }
 
 .card-row:not(:last-child) {
@@ -97,7 +98,17 @@
   font-size: 12px;
 }
 
-/* --- Diagonal split cell (true triangles via clip-path) --- */
+/* === Diagonal split cell (clip-path triangles) === */
+/*
+ *  Diagonal goes from BOTTOM-LEFT to TOP-RIGHT.
+ *
+ *  (0,0)-----(1,0)        Top-left triangle = "Good / Mix"
+ *    |  \         |        clip-path: polygon(0 0, 100% 0, 0 100%)
+ *    |    \       |
+ *    |      \     |        Bottom-right triangle = "Bad / Tricks"
+ *    |        \   |        clip-path: polygon(100% 0, 100% 100%, 0 100%)
+ *  (0,1)-----(1,1)
+ */
 
 .card-cell-diagonal-wrap {
   flex: 1;
@@ -106,7 +117,6 @@
   border-left: 1px solid #ece8e1;
 }
 
-/* The SVG diagonal line */
 .diagonal-line {
   position: absolute;
   inset: 0;
@@ -120,7 +130,6 @@
   height: 100%;
 }
 
-/* Both triangle zones are absolutely positioned to fill the whole cell */
 .diagonal-top,
 .diagonal-bottom {
   position: absolute;
@@ -132,24 +141,24 @@
   flex-direction: column;
 }
 
-/* Top-right triangle: above the bottom-left → top-right diagonal */
+/* Top-left triangle (above the diagonal) — "Good / Mix" */
 .diagonal-top {
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-  align-items: flex-end;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  align-items: flex-start;
   justify-content: flex-start;
+  text-align: left;
+}
+
+/* Bottom-right triangle (below the diagonal) — "Bad / Tricks" */
+.diagonal-bottom {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  align-items: flex-end;
+  justify-content: flex-end;
   text-align: right;
 }
 
-.diagonal-top .cell-content {
+.diagonal-bottom .cell-content {
   flex-direction: row-reverse;
-}
-
-/* Bottom-left triangle: below the diagonal */
-.diagonal-bottom {
-  clip-path: polygon(0 0, 100% 100%, 0 100%);
-  align-items: flex-start;
-  justify-content: flex-end;
-  text-align: left;
 }
 
 .diagonal-top:active,
@@ -183,60 +192,32 @@
   align-items: flex-start;
 }
 
-/* --- Tooltip (appears BELOW the cell) --- */
+/* === Tooltip (rendered as portal-like overlay on .card) === */
 
-.cell-tooltip {
-  position: absolute;
-  left: 4px;
-  right: 4px;
-  top: calc(100% + 4px);
+.card-tooltip-overlay {
+  position: fixed;
+  z-index: 9999;
   background: #2d2a26;
   color: #fff;
   font-size: 12px;
   line-height: 1.4;
-  padding: 8px 10px;
+  padding: 8px 12px;
   border-radius: 8px;
-  z-index: 30;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  animation: tooltipIn 0.15s ease-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 280px;
   pointer-events: none;
-  text-align: left;
+  animation: tooltipIn 0.15s ease-out;
 }
 
-.cell-tooltip::after {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  left: 24px;
-  border: 6px solid transparent;
-  border-bottom-color: #2d2a26;
-}
-
-/* Diagonal tooltips escape the clip-path by living outside the wrap */
-.diagonal-top .cell-tooltip,
-.diagonal-bottom .cell-tooltip {
-  position: fixed;
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
-  width: 260px;
-  max-width: 85vw;
-}
-
-.diagonal-top .cell-tooltip {
-  top: auto;
-  bottom: auto;
-}
-
-.diagonal-top .cell-tooltip::after,
-.diagonal-bottom .cell-tooltip::after {
+/* Fallback inline tooltip (hidden by default, used when overlay not available) */
+.cell-tooltip {
   display: none;
 }
 
 @keyframes tooltipIn {
   from {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(4px);
   }
   to {
     opacity: 1;
